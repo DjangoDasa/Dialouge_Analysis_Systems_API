@@ -1,14 +1,17 @@
 
 # Create your views here.
-from django.shortcuts import render, render_to_response
 
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
+from django.shortcuts import render, render_to_response
 from bokeh.plotting import figure, output_file, show
 from bokeh.embed import components
 
 
 
 def home_view(request):
-    return render(request, 'base/base.html')
+    return render(request, 'base/input.html')
 
 
 def index(request):
@@ -27,5 +30,12 @@ def index(request):
     script, div = components(plot)
 
     #Feed them to the Django template.
-    return render_to_response( 'base/base.html',
+    return render_to_response( 'base/bokeh.html',
             {'script' : script , 'div' : div} )
+
+class AnalysisApiView(generics.RetrieveAPIView):
+    permission_classes = ''
+
+    def get_queryset(self):
+
+        return User.objects.filter(id=self.kwargs['pk'])
