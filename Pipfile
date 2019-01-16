@@ -9,6 +9,9 @@ django = "*"
 django-registration = "*"
 djangorestframework = "*"
 pyyaml = "*"
+django-toolbelt = "*"
+bokeh = "*"
+numpy = "*"
 
 [dev-packages]
 
