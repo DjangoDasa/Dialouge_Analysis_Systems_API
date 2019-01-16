@@ -12,6 +12,7 @@ pyyaml = "*"
 django-toolbelt = "*"
 bokeh = "*"
 numpy = "*"
+nltk = "*"
 
 [dev-packages]
 
