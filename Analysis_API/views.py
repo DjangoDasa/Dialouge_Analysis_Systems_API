@@ -8,7 +8,7 @@ from bokeh.embed import components
 
 
 def home_view(request):
-    return render(request, 'base/base.html')
+    return render(request, 'base/input.html')
 
 
 def index(request):
